@@ -5,31 +5,52 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.0.2",
-        "dms/phpunit-arraysubset-asserts": "~0.1",
-        "exceedone/exment": "dev-master",
-        "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^2.0",
+        "php": "^8.2",
+        "ext-ldap": "*",
+        "composer/composer": "^2.6",
+        "doctrine/dbal": "^4.0",
+        "exceedone/exment": "dev-feature/bs5-11-core-update",
+        "exceedone/open-admin-core": "*",
+        "exment-git/spout": "^4.0",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/browser-kit-testing": "~6.2",
-        "laravel/framework": "^9.19",
-        "laravel/sanctum": "^2.14.1",
-        "laravel/tinker": "^2.7",
-        "laravel/ui": "^3.0",
-        "symfony/css-selector": "~5.2"
+        "illuminate/support": "^11.0",
+        "intervention/image": "^2.7",
+        "kylekatarnls/update-helper": "^1.2",
+        "laravel/browser-kit-testing": "^7.0",
+        "laravel/framework": "^11.0",
+        "laravel/helpers": "^1.6",
+        "laravel/passport": "^12.0",
+        "laravel/sanctum": "^4.0",
+        "laravel/slack-notification-channel": "^3.0",
+        "laravel/socialite": "^5.9",
+        "laravel/tinker": "^2.8",
+        "laravel/ui": "^4.2",
+        "lcobucci/jwt": "^5.0",
+        "mews/purifier": "^3.4",
+        "myclabs/php-enum": "^1.8",
+        "phpoffice/phpspreadsheet": "^1.29",
+        "phpseclib/phpseclib": "^3.0",
+        "pragmarx/google2fa": "^8.0",
+        "simplesoftwareio/simple-qrcode": "^2.0.0",
+        "symfony/css-selector": "^7.0",
+        "symfony/dom-crawler": "^7.0",
+        "webpatser/laravel-uuid": "^4.0"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
-        "laravel/sail": "^1.0.1",
+        "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10"
+        "nunomaduro/collision": "^8.0",
+        "nunomaduro/larastan": "^2.6",
+        "phpunit/phpunit": "^11.0",
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Exceedone\\Exment\\": "./exment/src",
+            "OpenAdminCore\\Admin\\": "src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
@@ -39,6 +60,8 @@
             "Tests\\": "tests/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -78,6 +101,18 @@
             "phpunit ./vendor/exceedone/exment/tests"
         ]
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./open-admin-core",
+            "options": { "symlink": true }
+        },
+        {
+            "type": "path",
+            "url": "./exment",
+            "options": { "symlink": true }
+        }
+    ],
     "config": {
         "allow-plugins": {
             "kylekatarnls/update-helper": true
